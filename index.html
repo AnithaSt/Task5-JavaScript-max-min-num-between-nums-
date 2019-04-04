@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task5&6-JavaScript</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  	<style type="text/css">
+  		.input{
+  			width:45%;
+  			}
+  			input{outline: none;}
+  		.bgcolor{background-color: #e1f9ed;}
+  		.img{background-image: url(img/ani.jpg);
+  			background-repeat: no-repeat;
+  			}
+  		.image{
+  				background-image: url(img/clash-of-clans-hd-to-2048x1152.jpg);
+  				background-repeat: no-repeat;
+  			}
+  		.scroll{
+  				height: 110px;
+  				overflow: scroll;
+  				overflow-x: hidden;	
+  		}
+  		.family{
+  			font-family: cursive;
+  		}
+  	</style>
+</head>
+<body>
+	<div class="container-fluid bgcolor family">
+	<div class="container img text-center">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 text-center mt-5">
+				<h3>Maximum and Minimum Numbers</h3>
+			</div>
+		</div>
+		<div class="mt-5"><b>	First Number:</b></div>
+		<div class="row">
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-8 col-md-8 ">
+				
+				<input type="Number" id="First"  placeholder="Enter the Number" class="input">
+			</div>
+			<div class="col-lg-1 col-md-1"></div>
+		</div>
+		<div class="mt-4"><b>Second Number:</b></div>
+		<div class="row">
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-8 col-md-8">	
+				<input type="Number" id="Second" placeholder="Enter the Number" class="input">
+			</div>
+			<div class="col-lg-1 col-md-1"></div>
+		</div>
+		<div class="mt-4"><b>Third Number:</b></div>
+		<div class="row ">
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-8 col-md-8">
+				<input type="Number" id="Third" placeholder="Enter the Number" class="input">
+			</div>
+			<div class="col-lg-1 col-md-1"></div>
+		</div>
+		<div class="row mt-5">
+			<div class="col-lg-12 col-md-12 text-center">
+				<input type="submit" class=" bg-success border-0 text-white" onclick="maxMin()"><br><br><br>
+				<p id="Maximum"></p>
+				<p id="Minimum"></p>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-5">
+	<div class="container text-center image">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 text-center mt-5">
+				<h3>Numbers Between Two Input</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-1 col-md-1"></div>
+			<div class="col-lg-10 col-md-10 mt-5">
+				<b>first Number:</b>
+				<input type="Number" name="first Number" id="firstnum">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-1 col-md-1"></div>
+			<div class="col-lg-10 col-md-10 mt-5">
+				<b>Last Number:</b>
+				<input type="Number" name="last Number" id="lastnum">
+			</div>
+			<div class="col-lg-1 col-md-1"></div>
+		</div>
+		<div class="row">	
+			<div class="col-lg-12 col-md-12 text-center mt-5 mb-5">
+				<input type="submit" name="button" value="Click" onclick="numbers()" class="bg-success border-0 text-white"><br><br>
+				<p id="idea" class="scroll"></p>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+</body>
+<script type="text/javascript">
+	function maxMin() {
+	var a = Number(document.getElementById('First').value);
+	var b = Number(document.getElementById('Second').value);
+	var c = Number(document.getElementById('Third').value);
+	var max ="";
+	var min ="";
+	var x;
+	var y;
+	x=(a>=b)?(a>=c ? a:c):(b>=c ? b:c);
+	max = x;
+
+	/*if(a>=b && a>=c) {
+	   	max =  a;
+	}
+	else if(b>=a && b>=c) {
+		max =  b;
+	}
+	else if(c>=a && c>=b){
+		max = c;
+	}*/
+	document.getElementById('Maximum').innerHTML = "<b>Maximum Number : " + max + "</b>";
+/*	y=(a<=b)?(a<=c ? a:c):(b<=c ? b:c);
+	min = y;
+	*/
+	if(a<=b && a<=c) {
+	   	min =  a;
+	}
+	else if(b<=a && b<=c) {
+		min =  b;
+	}
+	else if(c<=a && c<=b){
+		min = c;
+	}
+	document.getElementById('Minimum').innerHTML ="<b>Minimum Number : " + min +"</b>";
+}
+function numbers() {
+		var num1 = document.getElementById('firstnum').value;
+		var num2 = document.getElementById('lastnum').value;
+		var text = "";
+		var num1=parseInt(num1);
+		var num2=parseInt(num2);
+		
+		var i;
+		var j;
+		if (num1<num2) {
+			num1=num1+1;
+		for ( i = num1; i < num2; i++) {
+			text += i +"<br>";
+					}
+				}
+		else if(num1>num2){
+			num1=num1-1;
+			for ( j = num1; j > num2; j--) {
+			text += j +"<br>";
+		}
+	}
+		document.getElementById('idea').innerHTML = text;
+	}
+</script>
+</html>
